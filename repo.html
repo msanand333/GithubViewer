@@ -1,0 +1,17 @@
+<h2>{{repo.name}}</h2>
+    {{error}}
+<div>
+    Issues:{{repo.open_issues_count}}
+</div>
+
+<div>
+    <ul>
+        <li ng-repeat="usr in contributors">
+          <!--  <img src="https://avatars0.githubusercontent.com/u/{{user.id}}?v=4" alt="https://avatars1.githubusercontent.com/u/{{user.id}}?v=4">-->
+            {{usr.login}}
+        </li>
+    </ul>
+</div>
+
+<a href="#/main">Back to search</a>
+<a href="#/user/{{repo.owner.login}}">Back to {{repo.owner.login}}</a>

@@ -15,15 +15,39 @@
         	 		});
         };
 
+        var getRepoDetails=function(username,reponame){
+            //var repo;
+           
+            var repoUrl="http://api.github.com/repos/"+ username +"/"+reponame;
+           
+
+            return $http.get(repoUrl)
+                        .then(function(response){
+                            return response.data;
+                        });
+                   
+                        
+        };
+        var getContributors=function(repo){
+            //var contributorsUrl="http://api.github.com/repos/"+username+"/"+reponame+"/contributors";
+            
+            return $http.get(repo.contributors_url)
+                        .then(function(response){
+                            return response.data;
+                        });
+        };
+
         return {
         	getUser:getUser,
-        	getRepos:getRepos
+            getRepos:getRepos,
+            getRepoDetails:getRepoDetails,
+            getContributors:getContributors       
 
         };
 
     };
 
-    var modul = angular.module("githubViewer");
-    modul.factory("github", github);
+    var module = angular.module("githubViewer");
+    module.factory("github", github);
 
 }());
