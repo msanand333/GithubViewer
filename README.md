@@ -1,1 +1,1 @@
-first sample project on angular js and learning how to use git
+This is my first angular JS project made using the help of Pluralsight tutorial.
